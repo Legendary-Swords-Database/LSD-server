@@ -282,3 +282,6 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,visualstudiocode,python
+
+#MacOS inside files
+app/app/core/.DS_Store

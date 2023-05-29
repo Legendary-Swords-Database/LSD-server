@@ -1,6 +1,4 @@
 """Config."""
-from __future__ import annotations
-
 from typing import Dict, Any
 from pydantic import BaseSettings, validator, PostgresDsn, HttpUrl
 from .utils import get_env_file_path
