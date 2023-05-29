@@ -12,8 +12,8 @@
 > 4) run `$ docker compose exec backend bash`
 > 5) run `$ source /venv/bin/activate` to activate virtual environment
 > 6) run `$ cd app/`
-> 7) run `$ ./scripts/run_tests.sh` to run tests.
-> 8) run `$ ./scripts/pep8_pylint.sh` to run pylinter.
+> 7) run `$ ./scripts/tests.sh` to run tests.
+> 8) run `$ ./scripts/pylint.sh` to run pylinter.
 > 9) run `$ ./scripts/mypy` to run mypy.
 
 ### Run using **mamba**🐍(faster and smaller than conda):
@@ -25,14 +25,14 @@ Installing mamba:
 Running using mamba:
 
 > 1) using mamba install conda-lock package, running `$ mamba install conda-lock` 
-> 2) in the project root run `$ ./scripts/create_or_update_env.sh` to create ds-review environment to run the
+> 2) in the project root run `$ ./scripts/create_or_update_env.sh` to create LSD-server environment to run the
      application
-> 3) run `$ mamba activate ds-review` to activate new installed environment
+> 3) run `$ mamba activate LSD-server` to activate new installed environment
 > 4) run `$ docker compose up db` to run postgresql database
 > 5) run `$ cd app/app/` and then `$ python -m main` to start application
 > 6) go to http://localhost:8000/ and enjoy the app ✨
-> 7) run `$ cd ../` and then `$ ./scripts/run_tests.sh -c` to run tests with coverage.
-> 8) run `$ ./scripts/pep8_pylint.sh` to run pylinter.
+> 7) run `$ cd ../` and then `$ ./scripts/tests.sh -c` to run tests with coverage.
+> 8) run `$ ./scripts/pylint.sh` to run pylinter.
 > 9) run `$ ./scripts/mypy.sh` to run mypy.
 
 ### Run using **conda** 🐍:
@@ -45,9 +45,9 @@ Installing conda:
 Running using conda:
 
 > 1) using conda install conda-lock package, running `$ conda install conda-lock` 
-> 2) in the project root run `$ ./scripts/create_or_update_env.sh` to create ds-review environment to run the
+> 2) in the project root run `$ ./scripts/create_or_update_env.sh` to create LSD-server environment to run the
      application
-> 3) run `$ conda activate ds-review` to activate new installed environment
+> 3) run `$ conda activate LSD-server` to activate new installed environment
 > 4) run `$ docker compose up db` to run postgresql database
 > 5) run `$ cd app/app/` and then `$ python -m main` to start application
 > 6) go to http://localhost:8000/ and enjoy the app ✨
