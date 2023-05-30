@@ -6,17 +6,15 @@ from models import SwordCondition, SwordValue
 
 class SwordBase(BaseModel):
     """Shared properties of Sword."""
-    sword_typ: str | None = None
-    sword_condition: SwordCondition | None = None
-    sword_value: SwordValue | None = None
+    type: str | None = None
     price: int | None = None
 
 
 class SwordCreate(SwordBase):
     """Properties to receive via API on creation."""
-    sword_typ: str
-    sword_condition: SwordCondition
-    sword_value: SwordValue
+    type: str
+    condition: SwordCondition
+    value: SwordValue
     price: int
 
 
@@ -28,10 +26,8 @@ class SwordInDBBase(SwordBase):
     """Base model for sword in database."""
     uuid: UUID
     uuid_insurance: UUID
-    sword_type: str
-    sword_condition: SwordCondition
-    sword_value: SwordValue
-    price: int | None = None
+    condition: SwordCondition
+    value: SwordValue
     rented: bool
     on_sale: bool
     weight: int | None = None

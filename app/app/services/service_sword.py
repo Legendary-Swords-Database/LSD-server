@@ -91,7 +91,6 @@ class SwordService(AbstractSwordService):
         super().__init__(CRUDSword(db))
 
     def get_by_insurance_uuid(self, uuid_insurance: UUID) -> Sword | None:
-        str = "fwafwa"
         return self.crud.get_by_insurance_uuid(uuid_insurance)
 
     def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:

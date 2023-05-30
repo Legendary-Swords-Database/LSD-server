@@ -42,9 +42,9 @@ class Sword(Base):
     """
     uuid = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     uuid_insurance = Column(UUID(as_uuid=True), unique=True, nullable=False, default=uuid4)
-    sword_type = Column(String, nullable=False)
-    sword_condition = Column(SQLEnum(SwordCondition, name="sword_condition"), nullable=False)
-    sword_value = Column(SQLEnum(SwordValue, name="sword_value"), nullable=False)
+    type = Column(String, nullable=False)
+    condition = Column(SQLEnum(SwordCondition, name="condition"), nullable=False)
+    value = Column(SQLEnum(SwordValue, name="value"), nullable=False)
     price = Column(Integer, nullable=False, default=0)
     rented = Column(Boolean, nullable=False, default=False)
     on_sale = Column(Boolean, nullable=False, default=False)

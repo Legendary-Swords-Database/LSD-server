@@ -97,17 +97,17 @@ class CRUDSword(AbstractCRUDSword):
 
     def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:
         return self.db.query(self.model) \
-            .filter(self.model.sword_type == sword_type) \
+            .filter(self.model.type == sword_type) \
             .all()
 
     def get_by_condition_all(self, sword_condition: SwordCondition) -> list[Type[Sword]]:
         return self.db.query(self.model) \
-            .filter(self.model.sword_condition == sword_condition) \
+            .filter(self.model.condition == sword_condition) \
             .all()
 
     def get_by_value_all(self, sword_value: SwordValue) -> list[Type[Sword]]:
         return self.db.query(self.model) \
-            .filter(self.model.sword_value == sword_value) \
+            .filter(self.model.value == sword_value) \
             .all()
 
     def get_by_rented_all(self, rented: bool) -> list[Type[Sword]]:
