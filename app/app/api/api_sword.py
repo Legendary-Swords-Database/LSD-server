@@ -2,17 +2,43 @@
 API controllers for sword.
 """
 from uuid import UUID
-from fastapi import APIRouter, status, Depends, Path, Body
+from fastapi import APIRouter, status, Depends, Path, Body, responses
 from typing import List, Any, Annotated
 
 from api import utils
-from schemas import Sword, SwordUpdate
+from schemas import Sword, SwordUpdate, SwordCreate
 from services import SwordService
 
 router = APIRouter(
     prefix='/sword',
     tags=[utils.fastapi_docs.SWORD_TAG['name']]
 )
+
+
+@router.post("/",
+             response_model=Sword,
+             responses={
+                 400:{"model": utils.Message, "description": "Couldn't create sword."},
+             },
+             status_code=status.HTTP_201_CREATED)
+async def create_sword(service: Annotated[SwordService, Depends(SwordService)],
+                       sword: SwordCreate) -> Any:
+    """
+    Create sword, save it to db and return its uuid.
+
+    :param service: Sword service.
+    :param sword: SwordCreate schema.
+    :return: Fastapi response with status code and location view for sword.
+    """
+    sword_created = service.create(sword)
+    if not sword_created:
+        return responses.JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={
+                'message': "Could not create sword."
+            }
+        )
+    return sword_created
 
 
 @router.get("/",
