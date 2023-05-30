@@ -8,7 +8,7 @@ from typing import Type, Annotated
 from fastapi import Depends
 
 from services import CrudServiceBase
-from models import Sword, SwordCondition, SwordType, SwordValue
+from models import Sword, SwordCondition, SwordValue
 from crud import CRUDSword
 from schemas import SwordCreate, SwordUpdate
 from db import get_db
@@ -37,7 +37,7 @@ class AbstractSwordService(CrudServiceBase[
         """
 
     @abstractmethod
-    def get_by_type_all(self, sword_type: SwordType) -> list[Type[Sword]]:
+    def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:
         """
         Retrieves all Sword instances with the given type.
 
@@ -91,9 +91,10 @@ class SwordService(AbstractSwordService):
         super().__init__(CRUDSword(db))
 
     def get_by_insurance_uuid(self, uuid_insurance: UUID) -> Sword | None:
+        str = "fwafwa"
         return self.crud.get_by_insurance_uuid(uuid_insurance)
 
-    def get_by_type_all(self, sword_type: SwordType) -> list[Type[Sword]]:
+    def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:
         return self.crud.get_by_type_all(sword_type)
 
     def get_by_condition_all(self, sword_condition: SwordCondition) -> list[Type[Sword]]:

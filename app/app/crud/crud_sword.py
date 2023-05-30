@@ -10,7 +10,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 
 from crud import CRUDBase
-from models import Sword, SwordType, SwordCondition, SwordValue
+from models import Sword, SwordCondition, SwordValue
 from schemas import SwordCreate, SwordUpdate
 
 
@@ -35,7 +35,7 @@ class AbstractCRUDSword(CRUDBase[
         """
 
     @abstractmethod
-    def get_by_type_all(self, sword_type: SwordType) -> list[Type[Sword]]:
+    def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:
         """
         Retrieves all Sword instances with the given type.
 
@@ -95,7 +95,7 @@ class CRUDSword(AbstractCRUDSword):
             .filter(self.model.uuid_insurance == uuid_insurance) \
             .first()
 
-    def get_by_type_all(self, sword_type: SwordType) -> list[Type[Sword]]:
+    def get_by_type_all(self, sword_type: str) -> list[Type[Sword]]:
         return self.db.query(self.model) \
             .filter(self.model.sword_type == sword_type) \
             .all()
