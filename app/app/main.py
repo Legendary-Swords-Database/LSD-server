@@ -7,7 +7,7 @@ import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from api import utils, api_sword
+from api import utils, api_sword, api_person
 from core import settings
 from db import init_db
 
@@ -18,6 +18,7 @@ app = FastAPI(
     openapi_tags=utils.fastapi_docs.get_tags_metadata()
 )
 app.include_router(api_sword.router)
+app.include_router(api_person.router)
 
 app.add_exception_handler(
     utils.MethodNotAllowedException, utils.method_not_allowed_exception_handler

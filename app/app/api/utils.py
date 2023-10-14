@@ -14,6 +14,7 @@ class Message(BaseModel):
 class Entity(Enum):
     """Enum for entity names."""
     SWORD = "Sword"
+    PERSON = 'Person'
 
 
 # pylint: disable=unused-argument
@@ -124,11 +125,16 @@ class FastApiDocs:
         "name": "swords",
         "description": "Operations with swords.",
     }
+    PERSON_TAG = {
+        "name": "persons",
+        "description": "Operations with persons.",
+    }
 
     def get_tags_metadata(self):
         """Get tags metadata."""
         return [
             self.SWORD_TAG,
+            self.PERSON_TAG
         ]
 
 

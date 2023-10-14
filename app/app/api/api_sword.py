@@ -18,7 +18,7 @@ router = APIRouter(
 @router.post("/",
              response_model=Sword,
              responses={
-                 400:{"model": utils.Message, "description": "Couldn't create sword."},
+                 400: {"model": utils.Message, "description": "Couldn't create sword."},
              },
              status_code=status.HTTP_201_CREATED)
 async def create_sword(service: Annotated[SwordService, Depends(SwordService)],
